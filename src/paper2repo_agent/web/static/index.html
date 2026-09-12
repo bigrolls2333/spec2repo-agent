@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paper2Repo 控制台</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="side-head">
+        <div class="brand">
+          <div class="logo">P2R</div>
+          <div>
+            <div class="brand-title">Paper2Repo</div>
+            <div class="brand-sub">规划 · 确认 · 执行</div>
+          </div>
+        </div>
+        <button class="icon-btn" id="refreshBtn" title="刷新" type="button">↻</button>
+      </div>
+
+      <div class="side-body">
+        <section class="tool-panel">
+          <h3>新建规划</h3>
+          <label>
+            <span>论文路径</span>
+            <input id="paperPathInput" placeholder="D:\...\paper.pdf" />
+          </label>
+          <label>
+            <span>运行名称</span>
+            <input id="runNameInput" placeholder="paper_pdf" />
+          </label>
+          <label>
+            <span>复现要求</span>
+            <textarea id="initialRequestInput" rows="5" placeholder="告诉 agent 你的复现目标。例如：优先生成可运行的 PyTorch scaffold，先使用合成数据，并保持 CPU 可跑。"></textarea>
+          </label>
+          <div class="inline-fields">
+            <label>
+              <span>输入类型</span>
+              <select id="sourceTypeInput">
+                <option value="auto">自动识别</option>
+                <option value="pdf">PDF</option>
+                <option value="markdown">Markdown</option>
+                <option value="text">纯文本</option>
+              </select>
+            </label>
+            <label class="check-line">
+              <input id="fakeLlmInput" type="checkbox" />
+              <span>使用假 LLM</span>
+            </label>
+          </div>
+          <button class="btn primary" id="startPlanBtn" type="button">开始规划</button>
+        </section>
+
+        <section class="tool-panel">
+          <div class="panel-title-row">
+            <h3>运行记录</h3>
+            <span class="count-pill" id="runCount">0</span>
+          </div>
+          <div class="run-list" id="runList"></div>
+        </section>
+
+        <section class="tool-panel">
+          <div class="panel-title-row">
+            <h3>任务</h3>
+            <span class="count-pill" id="jobCount">0</span>
+          </div>
+          <div class="job-list" id="jobList"></div>
+        </section>
+      </div>
+
+      <div class="side-foot">
+        <span class="status-dot" id="apiDot"></span>
+        <span id="apiStatus">检查中</span>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="main-head">
+        <div>
+          <h1 id="runTitle">选择一个运行</h1>
+          <p id="runSubtitle">正在加载 runs 目录</p>
+        </div>
+        <div class="head-actions">
+          <button class="btn" id="reviseBtn" type="button">修改计划</button>
+          <button class="btn" id="approveBtn" type="button">确认计划</button>
+          <button class="btn primary" id="executeBtn" type="button">执行生成</button>
+        </div>
+      </header>
+
+      <nav class="tabs" aria-label="运行页面">
+        <button class="tab active" data-tab="overview" type="button">概览</button>
+        <button class="tab" data-tab="review" type="button">人工确认</button>
+        <button class="tab" data-tab="evidence" type="button">证据</button>
+        <button class="tab" data-tab="execution" type="button">执行</button>
+        <button class="tab" data-tab="artifacts" type="button">产物</button>
+      </nav>
+
+      <section class="content">
+        <div class="tab-panel active" id="tab-overview">
+          <div class="summary-grid">
+            <div class="metric">
+              <span>状态</span>
+              <strong id="statusValue">-</strong>
+            </div>
+            <div class="metric">
+              <span>确认状态</span>
+              <strong id="approvalValue">-</strong>
+            </div>
+            <div class="metric">
+              <span>执行状态</span>
+              <strong id="executionValue">-</strong>
+            </div>
+            <div class="metric">
+              <span>更新时间</span>
+              <strong id="updatedValue">-</strong>
+            </div>
+          </div>
+          <div class="split">
+            <section class="surface">
+              <h2>计划范围</h2>
+              <div id="planScope" class="kv-list"></div>
+            </section>
+            <section class="surface">
+              <h2>选中的论文主张</h2>
+              <ul id="claimsList" class="plain-list"></ul>
+            </section>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="tab-review">
+          <section class="surface">
+            <div class="panel-title-row">
+              <h2>人工确认</h2>
+              <span class="count-pill" id="reviewCount">0</span>
+            </div>
+            <div id="reviewSummary" class="markdown"></div>
+            <div id="confirmationList" class="confirmations"></div>
+          </section>
+        </div>
+
+        <div class="tab-panel" id="tab-evidence">
+          <section class="surface">
+            <div class="panel-title-row">
+              <h2>证据检索</h2>
+              <button class="btn" id="searchEvidenceBtn" type="button">搜索</button>
+            </div>
+            <div class="search-row">
+              <input id="fieldPathInput" placeholder="字段路径 field_path" />
+              <input id="evidenceIdInput" placeholder="证据 ID evidence_id" />
+              <input id="evidenceQueryInput" placeholder="文本关键词" />
+            </div>
+            <div id="evidenceList" class="evidence-list"></div>
+          </section>
+        </div>
+
+        <div class="tab-panel" id="tab-execution">
+          <section class="surface">
+            <h2>执行结果</h2>
+            <div id="executionSummary" class="kv-list"></div>
+            <div id="checkList" class="check-list"></div>
+          </section>
+        </div>
+
+        <div class="tab-panel" id="tab-artifacts">
+          <section class="surface">
+            <div class="panel-title-row">
+              <h2>产物</h2>
+              <select id="artifactSelect"></select>
+            </div>
+            <pre id="artifactPreview" class="artifact-preview">尚未选择产物。</pre>
+          </section>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

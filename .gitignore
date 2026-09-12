@@ -1,0 +1,53 @@
+# Secrets and local environment files
+.env
+.env.*
+!.env.example
+
+# Python environments and caches
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.pytest-tmp-*/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Paper2Repo runtime output
+runs/
+benchmarks/
+test_paper/
+uploads/
+artifacts/
+models/
+model_cache/
+.cache/
+**/generated_repo/
+**/execution/
+
+# Databases, logs, traces, and generated exports
+*.db
+*.sqlite
+*.sqlite3
+*.log
+*.jsonl
+*.trace
+*.zip
+*.tar
+*.tar.gz
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.parquet
+
+# Local tooling
+.idea/
+.vscode/
+*.iml
+Thumbs.db
+.DS_Store
