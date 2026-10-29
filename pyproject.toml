@@ -1,48 +1,36 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
 [project]
-name = "paper2repo-agent"
-version = "0.1.0"
-description = "Evidence-backed agent workflow for planning and executing ML paper reproductions."
-readme = "README.md"
-requires-python = ">=3.10"
+name = "spec2repo"
+version = "0.2.0"
+description = "Specification-driven agent backend with verifiable delivery."
+requires-python = ">=3.11"
 dependencies = [
-    "langgraph>=0.2.0",
-    # 3.1.x expects newer checkpoint-base APIs than LangGraph 1.0.x installs.
-    "langgraph-checkpoint-sqlite>=3.0.0,<3.1.0",
-    "langchain>=0.3.0",
-    "langchain-openai>=0.2.0",
-    "pydantic>=2.8.0",
-    "typer>=0.12.5",
-    "rich>=13.7.1",
-    "python-dotenv>=1.0.1",
-    "requests>=2.32.0",
-    "fastapi>=0.115.0",
-    "uvicorn>=0.30.0",
+    "pydantic>=2.12,<3",
+    "fastapi>=0.115,<1",
+    "uvicorn>=0.30,<1",
+    "sqlalchemy>=2.0,<2.1",
+    "alembic>=1.14,<2",
+    "pymysql[rsa]>=1.1,<2",
+    "redis>=5.2,<7",
 ]
 
 [project.optional-dependencies]
-dev = [
-    "pytest>=8.3.0",
-    "responses>=0.25.0",
-    "ruff>=0.6.0",
-]
-mysql = [
-    "SQLAlchemy>=2.0.0",
-    "PyMySQL>=1.1.0",
-]
+dev = ["pytest>=8.3,<9", "ruff>=0.9,<1", "httpx>=0.28,<1"]
 
 [project.scripts]
-paper2repo = "paper2repo_agent.cli:app"
-
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+spec2repo = "spec2repo.cli:main"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/paper2repo_agent"]
-
-[tool.ruff]
-line-length = 100
-target-version = "py310"
+packages = ["src/spec2repo"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["src"]
+markers = ["mysql: requires an explicitly configured isolated MySQL test database", "redis: requires dedicated Redis integration service", "docker: requires explicit SPEC2REPO_TEST_DOCKER=1 and a built runtime image"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
