@@ -1,0 +1,314 @@
+{
+  "timestamp_utc": "2026-10-23T03:21:32.442335+00:00",
+  "model": "deepseek-flash",
+  "provider_host": "api.deepseek.com",
+  "scope": "real model, shared Redis stream/consumer group, concurrent worker threads, Docker tools, independent acceptance and bounded repairs; in-process TestClient submission, synthetic automatic plan approval",
+  "spec": "notes_api.spec.json",
+  "cost": null,
+  "budget_per_task": {
+    "calls": 32,
+    "reserved_tokens": 240000,
+    "reserved_seconds": 1800
+  },
+  "batches": [
+    {
+      "batch_id": "21d2b34583764576bc8465f170654eae",
+      "concurrency": 1,
+      "tasks": 1,
+      "elapsed_seconds": 32.6553187998943,
+      "successes": 0,
+      "success_rate": 0.0,
+      "successful_tasks_per_minute": 0.0,
+      "aborted": null,
+      "cleanup_errors": [],
+      "image_id": "sha256:4258424cb9f118daaa16964e0d5bf0bf6c1ef7bfad32c744983b87840242b16d",
+      "runs": [
+        {
+          "run_id": "f09332ef-247a-41cc-9cee-75b47f3aed9a",
+          "status": "FAILED",
+          "accepted": false,
+          "elapsed_seconds": 32.454834199976176,
+          "budget": {
+            "calls": 6,
+            "reserved_tokens": 103743,
+            "reserved_seconds": 900,
+            "max_calls": 32,
+            "max_tokens": 240000,
+            "max_seconds": 1800
+          },
+          "events": [
+            {
+              "type": "run.created",
+              "payload": {
+                "status": "QUEUED"
+              }
+            },
+            {
+              "type": "execution.claimed",
+              "payload": {
+                "generation": 1
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 1,
+                "generation": 1,
+                "reserved_tokens": 9391,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 1,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 3037,
+                  "prompt_tokens": 1613,
+                  "completion_tokens": 1424
+                },
+                "elapsed_ms": 7947,
+                "generation": 1
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 1,
+                "tool": "propose_plan",
+                "generation": 1,
+                "arguments_hash": "b260d60e821199ce61ba347375906c6d3737f4edefe4ce24b6400f24c6eb6412"
+              }
+            },
+            {
+              "type": "agent.plan_proposed",
+              "payload": {
+                "reason": "Initial implementation plan",
+                "revision": 1,
+                "plan_hash": "f93e2cf661a36d2a442282331ba363a58e9d58fa4815d0acd3a3a464a97f70bc"
+              }
+            },
+            {
+              "type": "agent.approval_decided",
+              "payload": {
+                "owner": "bench-21d2b34583764576bc8465f170654eae",
+                "decision": "APPROVED",
+                "revision": 1
+              }
+            },
+            {
+              "type": "execution.claimed",
+              "payload": {
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 2,
+                "generation": 2,
+                "reserved_tokens": 14196,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 2,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 2961,
+                  "prompt_tokens": 2911,
+                  "completion_tokens": 50
+                },
+                "elapsed_ms": 984,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 2,
+                "tool": "list_files",
+                "generation": 2,
+                "arguments_hash": "9148ca1635096205f1465607bf9ab03093cf749749806bdd57cfdbead44c6777"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 2,
+                "tool": "list_files",
+                "generation": 2,
+                "output_hash": "3e21f485ff871d4e776e7d155b4e8ee9af59125c75c59b8bd33af29dc01d2580",
+                "output_chars": 45
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 3,
+                "generation": 2,
+                "reserved_tokens": 14663,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 3,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 4053,
+                  "prompt_tokens": 3002,
+                  "completion_tokens": 1051
+                },
+                "elapsed_ms": 5277,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 3,
+                "tool": "write_file",
+                "generation": 2,
+                "arguments_hash": "8267836101cb6c8bb645f729a95ee651ecf470e5c478bb9061d4961151ce9ca0"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 3,
+                "tool": "write_file",
+                "generation": 2,
+                "output_hash": "b7babc00a568a055f4dd2ccf12699a7cc14a2c9f2f93aecc754b2c3aa24fd94d",
+                "output_chars": 50
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 4,
+                "generation": 2,
+                "reserved_tokens": 19566,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 4,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 4318,
+                  "prompt_tokens": 4094,
+                  "completion_tokens": 224
+                },
+                "elapsed_ms": 1800,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 4,
+                "tool": "write_file",
+                "generation": 2,
+                "arguments_hash": "392eca871b330abcec8deb19702eb42f7da0085f3bba01419b8e0927fd0d1c20"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 4,
+                "tool": "write_file",
+                "generation": 2,
+                "output_hash": "b7babc00a568a055f4dd2ccf12699a7cc14a2c9f2f93aecc754b2c3aa24fd94d",
+                "output_chars": 50
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 5,
+                "generation": 2,
+                "reserved_tokens": 20760,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 5,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 5282,
+                  "prompt_tokens": 4363,
+                  "completion_tokens": 919
+                },
+                "elapsed_ms": 3651,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 5,
+                "tool": "write_file",
+                "generation": 2,
+                "arguments_hash": "4501672c9ac85842bf9b482c79e5e0caad818a1d7137ef3afa28184d6cc20db0"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 5,
+                "tool": "write_file",
+                "generation": 2,
+                "output_hash": "b7babc00a568a055f4dd2ccf12699a7cc14a2c9f2f93aecc754b2c3aa24fd94d",
+                "output_chars": 50
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 6,
+                "generation": 2,
+                "reserved_tokens": 25167,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_failed",
+              "payload": {
+                "call": 6,
+                "reason": "Only one tool call per turn is allowed",
+                "generation": 2
+              }
+            },
+            {
+              "type": "execution.failed",
+              "payload": {
+                "reason": "ModelError",
+                "generation": 2
+              }
+            }
+          ],
+          "snapshot_hash": null,
+          "verifications": []
+        }
+      ]
+    }
+  ]
+}

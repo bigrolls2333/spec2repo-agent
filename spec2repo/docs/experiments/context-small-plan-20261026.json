@@ -1,0 +1,46 @@
+{
+  "plan": {
+    "version": "spec2repo-eval-v1",
+    "code_hash": "d644f504c9d063230fb0960b49550a478be37d812391a215ad521e0d592d1465",
+    "trials": [
+      {
+        "case": "notes",
+        "spec_sha256": "ec077422a2a059b4066969676ebb3af1adfd347d9abe1b90b0f6a1fdb5da9f2f",
+        "repeat": 1,
+        "profile": "baseline"
+      },
+      {
+        "case": "notes",
+        "spec_sha256": "ec077422a2a059b4066969676ebb3af1adfd347d9abe1b90b0f6a1fdb5da9f2f",
+        "repeat": 1,
+        "profile": "memory"
+      },
+      {
+        "case": "notes",
+        "spec_sha256": "ec077422a2a059b4066969676ebb3af1adfd347d9abe1b90b0f6a1fdb5da9f2f",
+        "repeat": 2,
+        "profile": "memory"
+      },
+      {
+        "case": "notes",
+        "spec_sha256": "ec077422a2a059b4066969676ebb3af1adfd347d9abe1b90b0f6a1fdb5da9f2f",
+        "repeat": 2,
+        "profile": "baseline"
+      }
+    ],
+    "concurrency": 1,
+    "repeats": 2,
+    "budget_per_task": {
+      "calls": 32,
+      "reserved_tokens": 240000,
+      "reserved_seconds": 1800
+    },
+    "max_output_tokens": 4096,
+    "limitations": [
+      "Two public fixed cases; not a held-out generalization benchmark",
+      "Finite repeated trials, not sustained throughput"
+    ]
+  },
+  "executed": false,
+  "results": []
+}

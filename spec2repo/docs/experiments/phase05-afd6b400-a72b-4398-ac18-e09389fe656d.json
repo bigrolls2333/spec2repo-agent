@@ -1,0 +1,56 @@
+{
+  "model": "deepseek-v4-pro",
+  "run_id": "afd6b400-a72b-4398-ac18-e09389fe656d",
+  "status": "FAILED",
+  "elapsed_seconds": 4.08,
+  "budget": {
+    "calls": 1,
+    "reserved_tokens": 8990,
+    "reserved_seconds": 150,
+    "max_calls": 32,
+    "max_tokens": 240000,
+    "max_seconds": 1800
+  },
+  "snapshot_hash": null,
+  "image_id": "sha256:4258424cb9f118daaa16964e0d5bf0bf6c1ef7bfad32c744983b87840242b16d",
+  "cost": null,
+  "note": "Real model/tool execution; developer tests are not independent acceptance.",
+  "events": [
+    {
+      "type": "run.created",
+      "payload": {
+        "status": "QUEUED"
+      }
+    },
+    {
+      "type": "execution.claimed",
+      "payload": {
+        "generation": 1
+      }
+    },
+    {
+      "type": "agent.call_reserved",
+      "payload": {
+        "call": 1,
+        "generation": 1,
+        "reserved_tokens": 8990,
+        "reserved_seconds": 150
+      }
+    },
+    {
+      "type": "agent.model_failed",
+      "payload": {
+        "call": 1,
+        "reason": "Model HTTP status 401",
+        "generation": 1
+      }
+    },
+    {
+      "type": "execution.failed",
+      "payload": {
+        "reason": "ModelError",
+        "generation": 1
+      }
+    }
+  ]
+}

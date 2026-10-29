@@ -1,0 +1,479 @@
+{
+  "model": "deepseek-flash",
+  "run_id": "a08e3859-362b-445d-9270-36b76fe0e545",
+  "status": "WAITING_VERIFICATION",
+  "elapsed_seconds": 33.01,
+  "budget": {
+    "calls": 10,
+    "reserved_tokens": 204838,
+    "reserved_seconds": 1500,
+    "max_calls": 32,
+    "max_tokens": 240000,
+    "max_seconds": 1800
+  },
+  "snapshot_hash": "05761f114cfad38779b410b376c848561c4ac9fb3707713ae8e5c2908d8739ab",
+  "image_id": "sha256:4258424cb9f118daaa16964e0d5bf0bf6c1ef7bfad32c744983b87840242b16d",
+  "cost": null,
+  "note": "Real model/tool execution; developer tests are not independent acceptance.",
+  "events": [
+    {
+      "type": "run.created",
+      "payload": {
+        "status": "QUEUED"
+      }
+    },
+    {
+      "type": "execution.claimed",
+      "payload": {
+        "generation": 1
+      }
+    },
+    {
+      "type": "agent.call_reserved",
+      "payload": {
+        "call": 1,
+        "generation": 1,
+        "reserved_tokens": 9362,
+        "reserved_seconds": 150
+      }
+    },
+    {
+      "type": "agent.model_returned",
+      "payload": {
+        "call": 1,
+        "cost": null,
+        "model": "deepseek-flash",
+        "usage": {
+          "total_tokens": 2454,
+          "prompt_tokens": 1606,
+          "completion_tokens": 848
+        },
+        "elapsed_ms": 3837,
+        "generation": 1
+      }
+    },
+    {
+      "type": "agent.tool_requested",
+      "payload": {
+        "call": 1,
+        "tool": "propose_plan",
+        "generation": 1,
+        "arguments_hash": "204db4e5c8a91d7e5e2eb4cac44d3bdfc42e18da747240567d7e610dad9dbbbf"
+      }
+    },
+    {
+      "type": "agent.plan_proposed",
+      "payload": {
+        "reason": "Initial implementation plan",
+        "revision": 1,
+        "plan_hash": "e4113d9bba246d198c764bd64ef0144ed29f4c4bf4bbb5bf769445d9b96e928a"
+      }
+    },
+    {
+      "type": "agent.approval_decided",
+      "payload": {
+        "owner": "experiment",
+        "decision": "APPROVED",
+        "revision": 1
+      }
+    },
+    {
+      "type": "execution.claimed",
+      "payload": {
+        "generation": 2
+      }
+    },
+    {
+      "type": "agent.call_reserved",
+      "payload": {
+        "call": 2,
+        "generation": 2,
+        "reserved_tokens": 13913,
+        "reserved_seconds": 150
+      }
+    },
+    {
+      "type": "agent.model_returned",
+      "payload": {
+        "call": 2,
+        "cost": null,
+        "model": "deepseek-flash",
+        "usage": {
+          "total_tokens": 2921,
+          "prompt_tokens": 2854,
+          "completion_tokens": 67
+        },
+        "elapsed_ms": 798,
+        "generation": 2
+      }
+    },
+    {
+      "type": "agent.tool_requested",
+      "payload": {
+        "call": 2,
+        "tool": "list_files",
+        "generation": 2,
+        "arguments_hash": "9148ca1635096205f1465607bf9ab03093cf749749806bdd57cfdbead44c6777"
+      }
+    },
+    {
+      "type": "agent.tool_returned",
+      "payload": {
+        "ok": true,
+        "call": 2,
+        "tool": "list_files",
+        "generation": 2,
+        "output_hash": "3e21f485ff871d4e776e7d155b4e8ee9af59125c75c59b8bd33af29dc01d2580",
+        "output_chars": 45
+      }
+    },
+    {
+      "type": "agent.call_reserved",
+      "payload": {
+        "call": 3,
+        "generation": 2,
+        "reserved_tokens": 14427,
+        "reserved_seconds": 150
+      }
+    },
+    {
+      "type": "agent.model_returned",
+      "payload": {
+        "call": 3,
+        "cost": null,
+        "model": "deepseek-flash",
+        "usage": {
+          "total_tokens": 3515,
+          "prompt_tokens": 2962,
+          "completion_tokens": 553
+        },
+        "elapsed_ms": 2197,
+        "generation": 2
+      }
+    },
+    {
+      "type": "agent.tool_requested",
+      "payload": {
+        "call": 3,
+        "tool": "write_file",
+        "generation": 2,
+        "arguments_hash": "38d614a086c34ebccb846db3e88c45cf6689beccc6f26159842a473afc8ac787"
+      }
+    },
+    {
+      "type": "agent.tool_returned",
+      "payload": {
+        "ok": true,
+        "call": 3,
+        "tool": "write_file",
+        "generation": 2,
+        "output_hash": "b7babc00a568a055f4dd2ccf12699a7cc14a2c9f2f93aecc754b2c3aa24fd94d",
+        "output_chars": 50
+      }
+    },
+    {
+      "type": "agent.call_reserved",
+      "payload": {
+        "call": 4,
+        "generation": 2,
+        "reserved_tokens": 17111,
+        "reserved_seconds": 150
+      }
+    },
+    {
+      "type": "agent.model_returned",
+      "payload": {
+        "call": 4,
+        "cost": null,
+        "model": "deepseek-flash",
+        "usage": {
+          "total_tokens": 4310,
+          "prompt_tokens": 3557,
+          "completion_tokens": 753
+        },
+        "elapsed_ms": 2528,
+        "generation": 2
+      }
+    },
+    {
+      "type": "agent.tool_requested",
+      "payload": {
+        "call": 4,
+        "tool": "write_file",
+        "generation": 2,
+        "arguments_hash": "1bf28bd5807e400898d3563e947fdccc2c3e4b274807121658a0a7cd0cd474ee"
+      }
+    },
+    {
+      "type": "agent.tool_returned",
+      "payload": {
+        "ok": true,
+        "call": 4,
+        "tool": "write_file",
+        "generation": 2,
+        "output_hash": "b7babc00a568a055f4dd2ccf12699a7cc14a2c9f2f93aecc754b2c3aa24fd94d",
+        "output_chars": 50
+      }
+    },
+    {
+      "type": "agent.call_reserved",
+      "payload": {
+        "call": 5,
+        "generation": 2,
+        "reserved_tokens": 20641,
+        "reserved_seconds": 150
+      }
+    },
+    {
+      "type": "agent.model_returned",
+      "payload": {
+        "call": 5,
+        "cost": null,
+        "model": "deepseek-flash",
+        "usage": {
+          "total_tokens": 4803,
+          "prompt_tokens": 4354,
+          "completion_tokens": 449
+        },
+        "elapsed_ms": 2193,
+        "generation": 2
+      }
+    },
+    {
+      "type": "agent.tool_requested",
+      "payload": {
+        "call": 5,
+        "tool": "write_file",
+        "generation": 2,
+        "arguments_hash": "24a00e334647920bdc3c17b029a31383037e087067f2a3b254596fba08b4bb6b"
+      }
+    },
+    {
+      "type": "agent.tool_returned",
+      "payload": {
+        "ok": true,
+        "call": 5,
+        "tool": "write_file",
+        "generation": 2,
+        "output_hash": "b7babc00a568a055f4dd2ccf12699a7cc14a2c9f2f93aecc754b2c3aa24fd94d",
+        "output_chars": 50
+      }
+    },
+    {
+      "type": "agent.call_reserved",
+      "payload": {
+        "call": 6,
+        "generation": 2,
+        "reserved_tokens": 22730,
+        "reserved_seconds": 150
+      }
+    },
+    {
+      "type": "agent.model_returned",
+      "payload": {
+        "call": 6,
+        "cost": null,
+        "model": "deepseek-flash",
+        "usage": {
+          "total_tokens": 4894,
+          "prompt_tokens": 4845,
+          "completion_tokens": 49
+        },
+        "elapsed_ms": 699,
+        "generation": 2
+      }
+    },
+    {
+      "type": "agent.tool_requested",
+      "payload": {
+        "call": 6,
+        "tool": "terminal",
+        "generation": 2,
+        "arguments_hash": "05c2bc4b9a706159bbb134d1a582cca288e486c08a519acb6f597870ea0c0941"
+      }
+    },
+    {
+      "type": "agent.tool_returned",
+      "payload": {
+        "ok": false,
+        "call": 6,
+        "tool": "terminal",
+        "generation": 2,
+        "output_hash": "f8a2db693b57a4b43752f479f8d459fe2de2e8b7c2fd72d12b66d878d4fb2d68",
+        "output_chars": 2477
+      }
+    },
+    {
+      "type": "agent.call_reserved",
+      "payload": {
+        "call": 7,
+        "generation": 2,
+        "reserved_tokens": 25669,
+        "reserved_seconds": 150
+      }
+    },
+    {
+      "type": "agent.model_returned",
+      "payload": {
+        "call": 7,
+        "cost": null,
+        "model": "deepseek-flash",
+        "usage": {
+          "total_tokens": 6373,
+          "prompt_tokens": 5560,
+          "completion_tokens": 813
+        },
+        "elapsed_ms": 2876,
+        "generation": 2
+      }
+    },
+    {
+      "type": "agent.tool_requested",
+      "payload": {
+        "call": 7,
+        "tool": "write_file",
+        "generation": 2,
+        "arguments_hash": "57bf10dca12953401162c0e04bd6e7614c818f8c6c4e35d497e46958010c378c"
+      }
+    },
+    {
+      "type": "agent.tool_returned",
+      "payload": {
+        "ok": true,
+        "call": 7,
+        "tool": "write_file",
+        "generation": 2,
+        "output_hash": "b7babc00a568a055f4dd2ccf12699a7cc14a2c9f2f93aecc754b2c3aa24fd94d",
+        "output_chars": 50
+      }
+    },
+    {
+      "type": "agent.call_reserved",
+      "payload": {
+        "call": 8,
+        "generation": 2,
+        "reserved_tokens": 26440,
+        "reserved_seconds": 150
+      }
+    },
+    {
+      "type": "agent.model_returned",
+      "payload": {
+        "call": 8,
+        "cost": null,
+        "model": "deepseek-flash",
+        "usage": {
+          "total_tokens": 5791,
+          "prompt_tokens": 5742,
+          "completion_tokens": 49
+        },
+        "elapsed_ms": 802,
+        "generation": 2
+      }
+    },
+    {
+      "type": "agent.tool_requested",
+      "payload": {
+        "call": 8,
+        "tool": "terminal",
+        "generation": 2,
+        "arguments_hash": "05c2bc4b9a706159bbb134d1a582cca288e486c08a519acb6f597870ea0c0941"
+      }
+    },
+    {
+      "type": "agent.tool_returned",
+      "payload": {
+        "ok": true,
+        "call": 8,
+        "tool": "terminal",
+        "generation": 2,
+        "output_hash": "a3176c07c48ea8f8c39319099bc4599776e7c4c154067f964dbedbc3b3ca6dd9",
+        "output_chars": 661
+      }
+    },
+    {
+      "type": "agent.call_reserved",
+      "payload": {
+        "call": 9,
+        "generation": 2,
+        "reserved_tokens": 27491,
+        "reserved_seconds": 150
+      }
+    },
+    {
+      "type": "agent.model_returned",
+      "payload": {
+        "call": 9,
+        "cost": null,
+        "model": "deepseek-flash",
+        "usage": {
+          "total_tokens": 6108,
+          "prompt_tokens": 5977,
+          "completion_tokens": 131
+        },
+        "elapsed_ms": 1316,
+        "generation": 2
+      }
+    },
+    {
+      "type": "agent.tool_requested",
+      "payload": {
+        "call": 9,
+        "tool": "read_file",
+        "generation": 2,
+        "arguments_hash": "8f61abe7f9e65d66b61b71dfd626f68c4f9589558a325e36b35ebe29e59cfad9"
+      }
+    },
+    {
+      "type": "agent.tool_returned",
+      "payload": {
+        "ok": true,
+        "call": 9,
+        "tool": "read_file",
+        "generation": 2,
+        "output_hash": "2cfdd03a4d9f0e37ca57654175dd561a1892fb4076ab5e547d1ba4ee9297c021",
+        "output_chars": 2122
+      }
+    },
+    {
+      "type": "agent.call_reserved",
+      "payload": {
+        "call": 10,
+        "generation": 2,
+        "reserved_tokens": 27054,
+        "reserved_seconds": 150
+      }
+    },
+    {
+      "type": "agent.model_returned",
+      "payload": {
+        "call": 10,
+        "cost": null,
+        "model": "deepseek-flash",
+        "usage": {
+          "total_tokens": 6150,
+          "prompt_tokens": 5965,
+          "completion_tokens": 185
+        },
+        "elapsed_ms": 1252,
+        "generation": 2
+      }
+    },
+    {
+      "type": "agent.tool_requested",
+      "payload": {
+        "call": 10,
+        "tool": "finish",
+        "generation": 2,
+        "arguments_hash": "1b9a65952f7a07099dbff6f0c6d7b2ca65bf7ed2c5572099561f56023f653975"
+      }
+    },
+    {
+      "type": "agent.implementation_submitted",
+      "payload": {
+        "revision": 1,
+        "snapshot_hash": "05761f114cfad38779b410b376c848561c4ac9fb3707713ae8e5c2908d8739ab"
+      }
+    }
+  ]
+}

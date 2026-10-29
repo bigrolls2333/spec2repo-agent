@@ -1,0 +1,2811 @@
+{
+  "timestamp_utc": "2026-10-23T03:22:56.668378+00:00",
+  "model": "deepseek-flash",
+  "provider_host": "api.deepseek.com",
+  "scope": "real model, shared Redis stream/consumer group, concurrent worker threads, Docker tools, independent acceptance and bounded repairs; in-process TestClient submission, synthetic automatic plan approval",
+  "spec": "notes_api.spec.json",
+  "cost": null,
+  "budget_per_task": {
+    "calls": 32,
+    "reserved_tokens": 240000,
+    "reserved_seconds": 1800
+  },
+  "batches": [
+    {
+      "batch_id": "fe33a5e11e8f41c48c0cf85f39e17d56",
+      "concurrency": 2,
+      "tasks": 2,
+      "elapsed_seconds": 53.89149930002168,
+      "successes": 1,
+      "success_rate": 0.5,
+      "successful_tasks_per_minute": 1.1133481305831079,
+      "aborted": null,
+      "cleanup_errors": [],
+      "image_id": "sha256:4258424cb9f118daaa16964e0d5bf0bf6c1ef7bfad32c744983b87840242b16d",
+      "runs": [
+        {
+          "run_id": "42c0d586-6b8b-47aa-8a45-6417a49780fc",
+          "status": "FAILED",
+          "accepted": false,
+          "elapsed_seconds": 53.69092189986259,
+          "budget": {
+            "calls": 11,
+            "reserved_tokens": 236679,
+            "reserved_seconds": 1650,
+            "max_calls": 32,
+            "max_tokens": 240000,
+            "max_seconds": 1800
+          },
+          "events": [
+            {
+              "type": "run.created",
+              "payload": {
+                "status": "QUEUED"
+              }
+            },
+            {
+              "type": "execution.claimed",
+              "payload": {
+                "generation": 1
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 1,
+                "generation": 1,
+                "reserved_tokens": 9391,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 1,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 2129,
+                  "prompt_tokens": 1613,
+                  "completion_tokens": 516
+                },
+                "elapsed_ms": 2835,
+                "generation": 1
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 1,
+                "tool": "propose_plan",
+                "generation": 1,
+                "arguments_hash": "3826b0fb065bc32ced0cfc8e871ebe6bc49a122cab6a3def0128cdcfb8d99184"
+              }
+            },
+            {
+              "type": "agent.plan_proposed",
+              "payload": {
+                "reason": "Initial implementation plan",
+                "revision": 1,
+                "plan_hash": "0c01b8d3229ce649a2f5d2496ef83033594de8a0e1e4935d754d5a5fdc22a76d"
+              }
+            },
+            {
+              "type": "agent.approval_decided",
+              "payload": {
+                "owner": "bench-fe33a5e11e8f41c48c0cf85f39e17d56",
+                "decision": "APPROVED",
+                "revision": 1
+              }
+            },
+            {
+              "type": "execution.claimed",
+              "payload": {
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 2,
+                "generation": 2,
+                "reserved_tokens": 13325,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 2,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 3211,
+                  "prompt_tokens": 2692,
+                  "completion_tokens": 519
+                },
+                "elapsed_ms": 3809,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 2,
+                "tool": "list_files",
+                "generation": 2,
+                "arguments_hash": "9148ca1635096205f1465607bf9ab03093cf749749806bdd57cfdbead44c6777"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 2,
+                "tool": "list_files",
+                "generation": 2,
+                "output_hash": "3e21f485ff871d4e776e7d155b4e8ee9af59125c75c59b8bd33af29dc01d2580",
+                "output_chars": 45
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 3,
+                "generation": 2,
+                "reserved_tokens": 15833,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 3,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 4121,
+                  "prompt_tokens": 3252,
+                  "completion_tokens": 869
+                },
+                "elapsed_ms": 3485,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 3,
+                "tool": "write_file",
+                "generation": 2,
+                "arguments_hash": "27a4e808ca45659f1d8cbb7d849bc0db9b994781a0607f198d94358fc609af44"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 3,
+                "tool": "write_file",
+                "generation": 2,
+                "output_hash": "b7babc00a568a055f4dd2ccf12699a7cc14a2c9f2f93aecc754b2c3aa24fd94d",
+                "output_chars": 50
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 4,
+                "generation": 2,
+                "reserved_tokens": 19967,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 4,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 5252,
+                  "prompt_tokens": 4162,
+                  "completion_tokens": 1090
+                },
+                "elapsed_ms": 4826,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 4,
+                "tool": "write_file",
+                "generation": 2,
+                "arguments_hash": "beee8ba26ad4ca52d7a9388d03fe8df0633fbcb985053b52a186be65ef8bd121"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 4,
+                "tool": "write_file",
+                "generation": 2,
+                "output_hash": "b7babc00a568a055f4dd2ccf12699a7cc14a2c9f2f93aecc754b2c3aa24fd94d",
+                "output_chars": 50
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 5,
+                "generation": 2,
+                "reserved_tokens": 25219,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 5,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 5652,
+                  "prompt_tokens": 5296,
+                  "completion_tokens": 356
+                },
+                "elapsed_ms": 2683,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 5,
+                "tool": "terminal",
+                "generation": 2,
+                "arguments_hash": "05c2bc4b9a706159bbb134d1a582cca288e486c08a519acb6f597870ea0c0941"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 5,
+                "tool": "terminal",
+                "generation": 2,
+                "output_hash": "ca1d9e318435a7bd7aa379a1c9adf9ce3d75b74e94c0b025f2c302b5b4c5a794",
+                "output_chars": 662
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 6,
+                "generation": 2,
+                "reserved_tokens": 27494,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 6,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 6021,
+                  "prompt_tokens": 5840,
+                  "completion_tokens": 181
+                },
+                "elapsed_ms": 1458,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 6,
+                "tool": "write_file",
+                "generation": 2,
+                "arguments_hash": "d0178f94f1f090d21e7f2aacd7945fe411414f5ce4f40b7e417a1391a186476b"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 6,
+                "tool": "write_file",
+                "generation": 2,
+                "output_hash": "b7babc00a568a055f4dd2ccf12699a7cc14a2c9f2f93aecc754b2c3aa24fd94d",
+                "output_chars": 50
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 7,
+                "generation": 2,
+                "reserved_tokens": 25962,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 7,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 6209,
+                  "prompt_tokens": 5517,
+                  "completion_tokens": 692
+                },
+                "elapsed_ms": 3703,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 7,
+                "tool": "write_file",
+                "generation": 2,
+                "arguments_hash": "2a74dedf2c6af706a43a24746c04cdc5a6375f5cb63c814f36d15341254da15e"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 7,
+                "tool": "write_file",
+                "generation": 2,
+                "output_hash": "b7babc00a568a055f4dd2ccf12699a7cc14a2c9f2f93aecc754b2c3aa24fd94d",
+                "output_chars": 50
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 8,
+                "generation": 2,
+                "reserved_tokens": 24819,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 8,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 5474,
+                  "prompt_tokens": 5355,
+                  "completion_tokens": 119
+                },
+                "elapsed_ms": 1366,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 8,
+                "tool": "read_file",
+                "generation": 2,
+                "arguments_hash": "8f61abe7f9e65d66b61b71dfd626f68c4f9589558a325e36b35ebe29e59cfad9"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 8,
+                "tool": "read_file",
+                "generation": 2,
+                "output_hash": "0380b9559f57d5ff0697a6d566002aad4fe3f0d8a20e46ed01e60c8dbdbf964f",
+                "output_chars": 3130
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 9,
+                "generation": 2,
+                "reserved_tokens": 23739,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 9,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 5561,
+                  "prompt_tokens": 5300,
+                  "completion_tokens": 261
+                },
+                "elapsed_ms": 2064,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 9,
+                "tool": "terminal",
+                "generation": 2,
+                "arguments_hash": "b10866de7fd2347eeb3ef18f55261679e08d2ef37098ff45dafac4fd9ea20ef6"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 9,
+                "tool": "terminal",
+                "generation": 2,
+                "output_hash": "9d1e9c925577f46612efa1e802c4d525b2d89868e77f55446e81a2327b884c19",
+                "output_chars": 71
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 10,
+                "generation": 2,
+                "reserved_tokens": 25077,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 10,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 5701,
+                  "prompt_tokens": 5608,
+                  "completion_tokens": 93
+                },
+                "elapsed_ms": 1191,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 10,
+                "tool": "terminal",
+                "generation": 2,
+                "arguments_hash": "5040ffd5e13972845f5e744bc923d452ec0561590a471075a8e7a65781bdc5b3"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 10,
+                "tool": "terminal",
+                "generation": 2,
+                "output_hash": "824d67f957ea695332879775a822c7d9c6cdf05a562e97d0243e070956cbf5ac",
+                "output_chars": 219
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 11,
+                "generation": 2,
+                "reserved_tokens": 25853,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 11,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 6192,
+                  "prompt_tokens": 5794,
+                  "completion_tokens": 398
+                },
+                "elapsed_ms": 2315,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 11,
+                "tool": "terminal",
+                "generation": 2,
+                "arguments_hash": "59bb0e7a4ae60f7997682237fbff233aecb05d02b2e4ddb520b21b91f55a8963"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 11,
+                "tool": "terminal",
+                "generation": 2,
+                "output_hash": "8ca6c71da9a0763a8bcf6b99c78f287b46271a0dce6e52ddf0e6e9ae2697c779",
+                "output_chars": 953
+              }
+            },
+            {
+              "type": "execution.failed",
+              "payload": {
+                "reason": "BudgetExceeded",
+                "generation": 2
+              }
+            }
+          ],
+          "snapshot_hash": null,
+          "verifications": []
+        },
+        {
+          "run_id": "95d38bc9-07a5-41f5-b551-1498d12bbf31",
+          "status": "SUCCEEDED",
+          "accepted": true,
+          "elapsed_seconds": 49.63177779968828,
+          "budget": {
+            "calls": 11,
+            "reserved_tokens": 238155,
+            "reserved_seconds": 1650,
+            "max_calls": 32,
+            "max_tokens": 240000,
+            "max_seconds": 1800
+          },
+          "events": [
+            {
+              "type": "run.created",
+              "payload": {
+                "status": "QUEUED"
+              }
+            },
+            {
+              "type": "execution.claimed",
+              "payload": {
+                "generation": 1
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 1,
+                "generation": 1,
+                "reserved_tokens": 9391,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 1,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 2263,
+                  "prompt_tokens": 1613,
+                  "completion_tokens": 650
+                },
+                "elapsed_ms": 3675,
+                "generation": 1
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 1,
+                "tool": "propose_plan",
+                "generation": 1,
+                "arguments_hash": "37d1556e3b0205f05b3e2492b3d57cb1ad95b36af12fedbc1af1785c9c8226d3"
+              }
+            },
+            {
+              "type": "agent.plan_proposed",
+              "payload": {
+                "reason": "Initial implementation plan",
+                "revision": 1,
+                "plan_hash": "7cea39c959115c03f1fcb91e2cae11cf0bc9989dfea4ab00d41afeceb2fe8021"
+              }
+            },
+            {
+              "type": "agent.approval_decided",
+              "payload": {
+                "owner": "bench-fe33a5e11e8f41c48c0cf85f39e17d56",
+                "decision": "APPROVED",
+                "revision": 1
+              }
+            },
+            {
+              "type": "execution.claimed",
+              "payload": {
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 2,
+                "generation": 2,
+                "reserved_tokens": 13637,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 2,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 3317,
+                  "prompt_tokens": 2771,
+                  "completion_tokens": 546
+                },
+                "elapsed_ms": 2480,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 2,
+                "tool": "write_file",
+                "generation": 2,
+                "arguments_hash": "d546cd95fdca5380200226d951e62da900bb16b280fa4c097bc55f482dbf5124"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 2,
+                "tool": "write_file",
+                "generation": 2,
+                "output_hash": "b7babc00a568a055f4dd2ccf12699a7cc14a2c9f2f93aecc754b2c3aa24fd94d",
+                "output_chars": 50
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 3,
+                "generation": 2,
+                "reserved_tokens": 16375,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 3,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 4326,
+                  "prompt_tokens": 3358,
+                  "completion_tokens": 968
+                },
+                "elapsed_ms": 4158,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 3,
+                "tool": "write_file",
+                "generation": 2,
+                "arguments_hash": "14eaf3bc3e268d0b008b9e88e3562bef9d5ffcc2a153e716e6ad89ff8c4dc65c"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 3,
+                "tool": "write_file",
+                "generation": 2,
+                "output_hash": "b7babc00a568a055f4dd2ccf12699a7cc14a2c9f2f93aecc754b2c3aa24fd94d",
+                "output_chars": 50
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 4,
+                "generation": 2,
+                "reserved_tokens": 20936,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 4,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 4437,
+                  "prompt_tokens": 4372,
+                  "completion_tokens": 65
+                },
+                "elapsed_ms": 803,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 4,
+                "tool": "write_file",
+                "generation": 2,
+                "arguments_hash": "d4e19057a64c68d2f8b9706d7b2df5020032a1277bfbdacbb4ec79e40acfb6ff"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 4,
+                "tool": "write_file",
+                "generation": 2,
+                "output_hash": "b7babc00a568a055f4dd2ccf12699a7cc14a2c9f2f93aecc754b2c3aa24fd94d",
+                "output_chars": 50
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 5,
+                "generation": 2,
+                "reserved_tokens": 21408,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 5,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 5278,
+                  "prompt_tokens": 4481,
+                  "completion_tokens": 797
+                },
+                "elapsed_ms": 3911,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 5,
+                "tool": "write_file",
+                "generation": 2,
+                "arguments_hash": "d562c84d2bfbb284040672836f918c346935b28f2899f098faea06b7dedcd1d0"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 5,
+                "tool": "write_file",
+                "generation": 2,
+                "output_hash": "b7babc00a568a055f4dd2ccf12699a7cc14a2c9f2f93aecc754b2c3aa24fd94d",
+                "output_chars": 50
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 6,
+                "generation": 2,
+                "reserved_tokens": 24707,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 6,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 5369,
+                  "prompt_tokens": 5320,
+                  "completion_tokens": 49
+                },
+                "elapsed_ms": 1016,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 6,
+                "tool": "terminal",
+                "generation": 2,
+                "arguments_hash": "05c2bc4b9a706159bbb134d1a582cca288e486c08a519acb6f597870ea0c0941"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": false,
+                "call": 6,
+                "tool": "terminal",
+                "generation": 2,
+                "output_hash": "b481c2e7422a5943ef2b70d24bab6197c4cf3ff710a03226bda3099fae24df24",
+                "output_chars": 4746
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 7,
+                "generation": 2,
+                "reserved_tokens": 27294,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 7,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 6228,
+                  "prompt_tokens": 6127,
+                  "completion_tokens": 101
+                },
+                "elapsed_ms": 1349,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 7,
+                "tool": "read_file",
+                "generation": 2,
+                "arguments_hash": "8f61abe7f9e65d66b61b71dfd626f68c4f9589558a325e36b35ebe29e59cfad9"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 7,
+                "tool": "read_file",
+                "generation": 2,
+                "output_hash": "6437477cfc5916812ce4e8c2e967fa2e4182c64cb14ba3a60b0b5bc97731a1c9",
+                "output_chars": 2151
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 8,
+                "generation": 2,
+                "reserved_tokens": 25755,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 8,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 5982,
+                  "prompt_tokens": 5855,
+                  "completion_tokens": 127
+                },
+                "elapsed_ms": 1351,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 8,
+                "tool": "read_file",
+                "generation": 2,
+                "arguments_hash": "152bb15e9bb50077eaf0077b948e482ff3f0334715b342d6956bc089732ecdde"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 8,
+                "tool": "read_file",
+                "generation": 2,
+                "output_hash": "6996f1a95f3d3857f5552760169f705cda4557251fad066ab6b7ee2a1e9be5d5",
+                "output_chars": 3251
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 9,
+                "generation": 2,
+                "reserved_tokens": 26439,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 9,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 6961,
+                  "prompt_tokens": 6047,
+                  "completion_tokens": 914
+                },
+                "elapsed_ms": 3263,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 9,
+                "tool": "write_file",
+                "generation": 2,
+                "arguments_hash": "ad81461cb82cf3cc34f9cc2909b7f578d56f237ab98ca4bd198e777a30953414"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 9,
+                "tool": "write_file",
+                "generation": 2,
+                "output_hash": "b7babc00a568a055f4dd2ccf12699a7cc14a2c9f2f93aecc754b2c3aa24fd94d",
+                "output_chars": 50
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 10,
+                "generation": 2,
+                "reserved_tokens": 25580,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 10,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 5689,
+                  "prompt_tokens": 5640,
+                  "completion_tokens": 49
+                },
+                "elapsed_ms": 692,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 10,
+                "tool": "terminal",
+                "generation": 2,
+                "arguments_hash": "05c2bc4b9a706159bbb134d1a582cca288e486c08a519acb6f597870ea0c0941"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 10,
+                "tool": "terminal",
+                "generation": 2,
+                "output_hash": "7c1d90fb413e764ba754c3460c235d3d10bed9c64ab72c7f6fc750df7be5fba3",
+                "output_chars": 662
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 11,
+                "generation": 2,
+                "reserved_tokens": 26633,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 11,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 6236,
+                  "prompt_tokens": 5877,
+                  "completion_tokens": 359
+                },
+                "elapsed_ms": 2039,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 11,
+                "tool": "finish",
+                "generation": 2,
+                "arguments_hash": "00b1f6df92791943559ed06cbe314c113e26801eddfc258a5a20b41504cdadf9"
+              }
+            },
+            {
+              "type": "agent.implementation_submitted",
+              "payload": {
+                "revision": 1,
+                "snapshot_hash": "e0183ce26b9a7e071940c4b42ee960a75a00d360c53a0e7bc66156136343a947"
+              }
+            },
+            {
+              "type": "execution.claimed",
+              "payload": {
+                "generation": 3
+              }
+            },
+            {
+              "type": "verification.completed",
+              "payload": {
+                "outcome": "PASSED",
+                "sequence": 1,
+                "suite_hash": "62694a6e215f0631741f1bb6b5c3e8bad493a1615f97fcbe3b96296be0c31ee9",
+                "snapshot_hash": "e0183ce26b9a7e071940c4b42ee960a75a00d360c53a0e7bc66156136343a947",
+                "repair_scheduled": false
+              }
+            }
+          ],
+          "snapshot_hash": "e0183ce26b9a7e071940c4b42ee960a75a00d360c53a0e7bc66156136343a947",
+          "verifications": [
+            {
+              "sequence": 1,
+              "generation": 3,
+              "checks": [
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "201 with integer id and unchanged text",
+                  "held_out": false,
+                  "acceptance_id": "A1",
+                  "requirement_ids": [
+                    "R1"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Empty and over-limit text return 422",
+                  "held_out": false,
+                  "acceptance_id": "A2",
+                  "requirement_ids": [
+                    "R1"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Missing resource returns 404",
+                  "held_out": false,
+                  "acceptance_id": "A4",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Read returns created note",
+                  "held_out": false,
+                  "acceptance_id": "A3",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "201 with integer id and unchanged text",
+                  "held_out": true,
+                  "acceptance_id": "A1",
+                  "requirement_ids": [
+                    "R1"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Empty and over-limit text return 422",
+                  "held_out": true,
+                  "acceptance_id": "A2",
+                  "requirement_ids": [
+                    "R1"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Missing resource returns 404",
+                  "held_out": true,
+                  "acceptance_id": "A4",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Read returns created note",
+                  "held_out": true,
+                  "acceptance_id": "A3",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "201 with integer id and unchanged text",
+                  "held_out": true,
+                  "acceptance_id": "A1",
+                  "requirement_ids": [
+                    "R1"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Empty and over-limit text return 422",
+                  "held_out": true,
+                  "acceptance_id": "A2",
+                  "requirement_ids": [
+                    "R1"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Missing resource returns 404",
+                  "held_out": true,
+                  "acceptance_id": "A4",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Read returns created note",
+                  "held_out": true,
+                  "acceptance_id": "A3",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Previously created resource survives process restart",
+                  "held_out": false,
+                  "acceptance_id": "A3",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Previously created resource survives process restart",
+                  "held_out": true,
+                  "acceptance_id": "A3",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Previously created resource survives process restart",
+                  "held_out": true,
+                  "acceptance_id": "A3",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                }
+              ],
+              "outcome": "PASSED",
+              "feedback": [],
+              "image_id": "sha256:4258424cb9f118daaa16964e0d5bf0bf6c1ef7bfad32c744983b87840242b16d",
+              "spec_hash": "522d740b81f061c3dca74d0a6e6bfdf4821d2ac75200bc42e0627e7969a5dfda",
+              "suite_hash": "62694a6e215f0631741f1bb6b5c3e8bad493a1615f97fcbe3b96296be0c31ee9",
+              "snapshot_hash": "e0183ce26b9a7e071940c4b42ee960a75a00d360c53a0e7bc66156136343a947",
+              "suite_version": "python-api-http-v1",
+              "repair_scheduled": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "batch_id": "6d5715b473834c9f82805e2f90324193",
+      "concurrency": 4,
+      "tasks": 4,
+      "elapsed_seconds": 53.519094000104815,
+      "successes": 2,
+      "success_rate": 0.5,
+      "successful_tasks_per_minute": 2.242190422725859,
+      "aborted": null,
+      "cleanup_errors": [],
+      "image_id": "sha256:4258424cb9f118daaa16964e0d5bf0bf6c1ef7bfad32c744983b87840242b16d",
+      "runs": [
+        {
+          "run_id": "45aa50c5-0082-4dc1-a099-5c751ab55916",
+          "status": "SUCCEEDED",
+          "accepted": true,
+          "elapsed_seconds": 48.395609699655324,
+          "budget": {
+            "calls": 9,
+            "reserved_tokens": 191096,
+            "reserved_seconds": 1350,
+            "max_calls": 32,
+            "max_tokens": 240000,
+            "max_seconds": 1800
+          },
+          "events": [
+            {
+              "type": "run.created",
+              "payload": {
+                "status": "QUEUED"
+              }
+            },
+            {
+              "type": "execution.claimed",
+              "payload": {
+                "generation": 1
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 1,
+                "generation": 1,
+                "reserved_tokens": 9391,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 1,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 2155,
+                  "prompt_tokens": 1613,
+                  "completion_tokens": 542
+                },
+                "elapsed_ms": 3126,
+                "generation": 1
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 1,
+                "tool": "propose_plan",
+                "generation": 1,
+                "arguments_hash": "cab4a6db6800083f5bbff87a15796dbe1fcf56550c61bd5053e35e32a5aded46"
+              }
+            },
+            {
+              "type": "agent.plan_proposed",
+              "payload": {
+                "reason": "Initial implementation plan",
+                "revision": 1,
+                "plan_hash": "0c95408f5880c4a12e32e9911ce2c88d843dac5ffd5c7987ca4d74cc544e4976"
+              }
+            },
+            {
+              "type": "agent.approval_decided",
+              "payload": {
+                "owner": "bench-6d5715b473834c9f82805e2f90324193",
+                "decision": "APPROVED",
+                "revision": 1
+              }
+            },
+            {
+              "type": "execution.claimed",
+              "payload": {
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 2,
+                "generation": 2,
+                "reserved_tokens": 13372,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 2,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 3599,
+                  "prompt_tokens": 2701,
+                  "completion_tokens": 898
+                },
+                "elapsed_ms": 4260,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 2,
+                "tool": "write_file",
+                "generation": 2,
+                "arguments_hash": "5dc0bb3384fd15186ee7ca6f1b4c0a5a103a3b6a57628a1ff5cc978233ceb964"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 2,
+                "tool": "write_file",
+                "generation": 2,
+                "output_hash": "b7babc00a568a055f4dd2ccf12699a7cc14a2c9f2f93aecc754b2c3aa24fd94d",
+                "output_chars": 50
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 3,
+                "generation": 2,
+                "reserved_tokens": 17604,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 3,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 4499,
+                  "prompt_tokens": 3640,
+                  "completion_tokens": 859
+                },
+                "elapsed_ms": 3756,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 3,
+                "tool": "write_file",
+                "generation": 2,
+                "arguments_hash": "495abf9ed4737a63dcad0413b52cd4e07774117f157aa33a0b1c2cf1a4cc239c"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 3,
+                "tool": "write_file",
+                "generation": 2,
+                "output_hash": "b7babc00a568a055f4dd2ccf12699a7cc14a2c9f2f93aecc754b2c3aa24fd94d",
+                "output_chars": 50
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 4,
+                "generation": 2,
+                "reserved_tokens": 21562,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 4,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 5156,
+                  "prompt_tokens": 4541,
+                  "completion_tokens": 615
+                },
+                "elapsed_ms": 3010,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 4,
+                "tool": "write_file",
+                "generation": 2,
+                "arguments_hash": "ea9f74dc47f34fba34c7f618b7b989f529c9e1f9a430aa59f93d8034a28d3f25"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 4,
+                "tool": "write_file",
+                "generation": 2,
+                "output_hash": "b7babc00a568a055f4dd2ccf12699a7cc14a2c9f2f93aecc754b2c3aa24fd94d",
+                "output_chars": 50
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 5,
+                "generation": 2,
+                "reserved_tokens": 24437,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 5,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 6279,
+                  "prompt_tokens": 5201,
+                  "completion_tokens": 1078
+                },
+                "elapsed_ms": 4492,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 5,
+                "tool": "write_file",
+                "generation": 2,
+                "arguments_hash": "4748bb572aaa2ca3554cbdf0a187d46c983204e4c90dec6538fc0e4695995947"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 5,
+                "tool": "write_file",
+                "generation": 2,
+                "output_hash": "b7babc00a568a055f4dd2ccf12699a7cc14a2c9f2f93aecc754b2c3aa24fd94d",
+                "output_chars": 50
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 6,
+                "generation": 2,
+                "reserved_tokens": 25255,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 6,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 5628,
+                  "prompt_tokens": 5399,
+                  "completion_tokens": 229
+                },
+                "elapsed_ms": 1681,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 6,
+                "tool": "terminal",
+                "generation": 2,
+                "arguments_hash": "05c2bc4b9a706159bbb134d1a582cca288e486c08a519acb6f597870ea0c0941"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 6,
+                "tool": "terminal",
+                "generation": 2,
+                "output_hash": "a450fb7ba42defecca8210c0630d4da59a57f408d373ded185ed0fe7efcbba0f",
+                "output_chars": 662
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 7,
+                "generation": 2,
+                "reserved_tokens": 26982,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 7,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 6456,
+                  "prompt_tokens": 5815,
+                  "completion_tokens": 641
+                },
+                "elapsed_ms": 3417,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 7,
+                "tool": "write_file",
+                "generation": 2,
+                "arguments_hash": "f55a37b0898538ec018dc991999212a70c435563ca6fe11a1c25724a7cea0689"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 7,
+                "tool": "write_file",
+                "generation": 2,
+                "output_hash": "b7babc00a568a055f4dd2ccf12699a7cc14a2c9f2f93aecc754b2c3aa24fd94d",
+                "output_chars": 50
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 8,
+                "generation": 2,
+                "reserved_tokens": 25858,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 8,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 5687,
+                  "prompt_tokens": 5611,
+                  "completion_tokens": 76
+                },
+                "elapsed_ms": 1216,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 8,
+                "tool": "read_file",
+                "generation": 2,
+                "arguments_hash": "8f61abe7f9e65d66b61b71dfd626f68c4f9589558a325e36b35ebe29e59cfad9"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 8,
+                "tool": "read_file",
+                "generation": 2,
+                "output_hash": "fb033a08a795591867ff2c66dcdf2cca690ad5a9b8f5ff2728726c5b5fa2ef05",
+                "output_chars": 2791
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 9,
+                "generation": 2,
+                "reserved_tokens": 26635,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 9,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 6394,
+                  "prompt_tokens": 5902,
+                  "completion_tokens": 492
+                },
+                "elapsed_ms": 3202,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 9,
+                "tool": "finish",
+                "generation": 2,
+                "arguments_hash": "abe071c7c1480eee526f301d78425d96324da502ce5b35819a1a8d1f6a5b311a"
+              }
+            },
+            {
+              "type": "agent.implementation_submitted",
+              "payload": {
+                "revision": 1,
+                "snapshot_hash": "2115db45831950ae0806c15eab51014d4455585b3b601be7736e5c8692aa187a"
+              }
+            },
+            {
+              "type": "execution.claimed",
+              "payload": {
+                "generation": 3
+              }
+            },
+            {
+              "type": "verification.completed",
+              "payload": {
+                "outcome": "PASSED",
+                "sequence": 1,
+                "suite_hash": "62694a6e215f0631741f1bb6b5c3e8bad493a1615f97fcbe3b96296be0c31ee9",
+                "snapshot_hash": "2115db45831950ae0806c15eab51014d4455585b3b601be7736e5c8692aa187a",
+                "repair_scheduled": false
+              }
+            }
+          ],
+          "snapshot_hash": "2115db45831950ae0806c15eab51014d4455585b3b601be7736e5c8692aa187a",
+          "verifications": [
+            {
+              "sequence": 1,
+              "generation": 3,
+              "checks": [
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "201 with integer id and unchanged text",
+                  "held_out": false,
+                  "acceptance_id": "A1",
+                  "requirement_ids": [
+                    "R1"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Empty and over-limit text return 422",
+                  "held_out": false,
+                  "acceptance_id": "A2",
+                  "requirement_ids": [
+                    "R1"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Missing resource returns 404",
+                  "held_out": false,
+                  "acceptance_id": "A4",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Read returns created note",
+                  "held_out": false,
+                  "acceptance_id": "A3",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "201 with integer id and unchanged text",
+                  "held_out": true,
+                  "acceptance_id": "A1",
+                  "requirement_ids": [
+                    "R1"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Empty and over-limit text return 422",
+                  "held_out": true,
+                  "acceptance_id": "A2",
+                  "requirement_ids": [
+                    "R1"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Missing resource returns 404",
+                  "held_out": true,
+                  "acceptance_id": "A4",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Read returns created note",
+                  "held_out": true,
+                  "acceptance_id": "A3",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "201 with integer id and unchanged text",
+                  "held_out": true,
+                  "acceptance_id": "A1",
+                  "requirement_ids": [
+                    "R1"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Empty and over-limit text return 422",
+                  "held_out": true,
+                  "acceptance_id": "A2",
+                  "requirement_ids": [
+                    "R1"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Missing resource returns 404",
+                  "held_out": true,
+                  "acceptance_id": "A4",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Read returns created note",
+                  "held_out": true,
+                  "acceptance_id": "A3",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Previously created resource survives process restart",
+                  "held_out": false,
+                  "acceptance_id": "A3",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Previously created resource survives process restart",
+                  "held_out": true,
+                  "acceptance_id": "A3",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Previously created resource survives process restart",
+                  "held_out": true,
+                  "acceptance_id": "A3",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                }
+              ],
+              "outcome": "PASSED",
+              "feedback": [],
+              "image_id": "sha256:4258424cb9f118daaa16964e0d5bf0bf6c1ef7bfad32c744983b87840242b16d",
+              "spec_hash": "522d740b81f061c3dca74d0a6e6bfdf4821d2ac75200bc42e0627e7969a5dfda",
+              "suite_hash": "62694a6e215f0631741f1bb6b5c3e8bad493a1615f97fcbe3b96296be0c31ee9",
+              "snapshot_hash": "2115db45831950ae0806c15eab51014d4455585b3b601be7736e5c8692aa187a",
+              "suite_version": "python-api-http-v1",
+              "repair_scheduled": false
+            }
+          ]
+        },
+        {
+          "run_id": "46d69e43-5b6d-4f0b-be19-08df3afc8c62",
+          "status": "FAILED",
+          "accepted": false,
+          "elapsed_seconds": 17.263695999979973,
+          "budget": {
+            "calls": 2,
+            "reserved_tokens": 23717,
+            "reserved_seconds": 300,
+            "max_calls": 32,
+            "max_tokens": 240000,
+            "max_seconds": 1800
+          },
+          "events": [
+            {
+              "type": "run.created",
+              "payload": {
+                "status": "QUEUED"
+              }
+            },
+            {
+              "type": "execution.claimed",
+              "payload": {
+                "generation": 1
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 1,
+                "generation": 1,
+                "reserved_tokens": 9391,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 1,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 2406,
+                  "prompt_tokens": 1613,
+                  "completion_tokens": 793
+                },
+                "elapsed_ms": 4728,
+                "generation": 1
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 1,
+                "tool": "propose_plan",
+                "generation": 1,
+                "arguments_hash": "463f7f5e9fb8b7f0357e5133c2886e2846a6e158786ad2fe79edf3c0e852b876"
+              }
+            },
+            {
+              "type": "agent.plan_proposed",
+              "payload": {
+                "reason": "Initial implementation plan",
+                "revision": 1,
+                "plan_hash": "84a332d769ff98e4c4bb93285b998e4dff750db7cdc28b9199ed0763e8f666f8"
+              }
+            },
+            {
+              "type": "agent.approval_decided",
+              "payload": {
+                "owner": "bench-6d5715b473834c9f82805e2f90324193",
+                "decision": "APPROVED",
+                "revision": 1
+              }
+            },
+            {
+              "type": "execution.claimed",
+              "payload": {
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 2,
+                "generation": 2,
+                "reserved_tokens": 14326,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_failed",
+              "payload": {
+                "call": 2,
+                "reason": "Only one tool call per turn is allowed",
+                "generation": 2
+              }
+            },
+            {
+              "type": "execution.failed",
+              "payload": {
+                "reason": "ModelError",
+                "generation": 2
+              }
+            }
+          ],
+          "snapshot_hash": null,
+          "verifications": []
+        },
+        {
+          "run_id": "3db33e3f-ef2d-4a2a-b1ac-35bcea351396",
+          "status": "SUCCEEDED",
+          "accepted": true,
+          "elapsed_seconds": 53.27283880021423,
+          "budget": {
+            "calls": 11,
+            "reserved_tokens": 239081,
+            "reserved_seconds": 1650,
+            "max_calls": 32,
+            "max_tokens": 240000,
+            "max_seconds": 1800
+          },
+          "events": [
+            {
+              "type": "run.created",
+              "payload": {
+                "status": "QUEUED"
+              }
+            },
+            {
+              "type": "execution.claimed",
+              "payload": {
+                "generation": 1
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 1,
+                "generation": 1,
+                "reserved_tokens": 9391,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 1,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 2133,
+                  "prompt_tokens": 1613,
+                  "completion_tokens": 520
+                },
+                "elapsed_ms": 2868,
+                "generation": 1
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 1,
+                "tool": "propose_plan",
+                "generation": 1,
+                "arguments_hash": "5b5418f549c7aaf01906828b8974294a2a158ce47233108741ff261a6dfe5048"
+              }
+            },
+            {
+              "type": "agent.plan_proposed",
+              "payload": {
+                "reason": "Initial implementation plan",
+                "revision": 1,
+                "plan_hash": "6a0ab44fe0d1871d4e5772c7bda39d9cf950ea0e8afda67f34de1c4aca86d82a"
+              }
+            },
+            {
+              "type": "agent.approval_decided",
+              "payload": {
+                "owner": "bench-6d5715b473834c9f82805e2f90324193",
+                "decision": "APPROVED",
+                "revision": 1
+              }
+            },
+            {
+              "type": "execution.claimed",
+              "payload": {
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 2,
+                "generation": 2,
+                "reserved_tokens": 13460,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 2,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 2755,
+                  "prompt_tokens": 2706,
+                  "completion_tokens": 49
+                },
+                "elapsed_ms": 1127,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 2,
+                "tool": "list_files",
+                "generation": 2,
+                "arguments_hash": "9148ca1635096205f1465607bf9ab03093cf749749806bdd57cfdbead44c6777"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 2,
+                "tool": "list_files",
+                "generation": 2,
+                "output_hash": "3e21f485ff871d4e776e7d155b4e8ee9af59125c75c59b8bd33af29dc01d2580",
+                "output_chars": 45
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 3,
+                "generation": 2,
+                "reserved_tokens": 13920,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 3,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 4311,
+                  "prompt_tokens": 2796,
+                  "completion_tokens": 1515
+                },
+                "elapsed_ms": 7336,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 3,
+                "tool": "write_file",
+                "generation": 2,
+                "arguments_hash": "04aac3ac7da5879ab2cf64b229bdc9b0008344fb5195efea55cf0067b8d6a005"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 3,
+                "tool": "write_file",
+                "generation": 2,
+                "output_hash": "b7babc00a568a055f4dd2ccf12699a7cc14a2c9f2f93aecc754b2c3aa24fd94d",
+                "output_chars": 50
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 4,
+                "generation": 2,
+                "reserved_tokens": 20605,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 4,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 5156,
+                  "prompt_tokens": 4352,
+                  "completion_tokens": 804
+                },
+                "elapsed_ms": 3330,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 4,
+                "tool": "write_file",
+                "generation": 2,
+                "arguments_hash": "11d04be35dad0e021598d8cf898dbfc8e26d55a256afa9a8fb8978c2676a8a25"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 4,
+                "tool": "write_file",
+                "generation": 2,
+                "output_hash": "b7babc00a568a055f4dd2ccf12699a7cc14a2c9f2f93aecc754b2c3aa24fd94d",
+                "output_chars": 50
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 5,
+                "generation": 2,
+                "reserved_tokens": 24499,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 5,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 5725,
+                  "prompt_tokens": 5200,
+                  "completion_tokens": 525
+                },
+                "elapsed_ms": 2986,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 5,
+                "tool": "write_file",
+                "generation": 2,
+                "arguments_hash": "87d15f48406b860cd3a6394aaec49e9a1261854d7e7291d2ffa391790bc01211"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 5,
+                "tool": "write_file",
+                "generation": 2,
+                "output_hash": "b7babc00a568a055f4dd2ccf12699a7cc14a2c9f2f93aecc754b2c3aa24fd94d",
+                "output_chars": 50
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 6,
+                "generation": 2,
+                "reserved_tokens": 26844,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 6,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 5816,
+                  "prompt_tokens": 5767,
+                  "completion_tokens": 49
+                },
+                "elapsed_ms": 777,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 6,
+                "tool": "terminal",
+                "generation": 2,
+                "arguments_hash": "05c2bc4b9a706159bbb134d1a582cca288e486c08a519acb6f597870ea0c0941"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": false,
+                "call": 6,
+                "tool": "terminal",
+                "generation": 2,
+                "output_hash": "6279fe913b0a8cb6a0c0cf18292af715b16c30ab98424e5f4b44f122a1e751bb",
+                "output_chars": 4203
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 7,
+                "generation": 2,
+                "reserved_tokens": 24589,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 7,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 5604,
+                  "prompt_tokens": 5510,
+                  "completion_tokens": 94
+                },
+                "elapsed_ms": 1470,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 7,
+                "tool": "read_file",
+                "generation": 2,
+                "arguments_hash": "8f61abe7f9e65d66b61b71dfd626f68c4f9589558a325e36b35ebe29e59cfad9"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 7,
+                "tool": "read_file",
+                "generation": 2,
+                "output_hash": "325f802b38f4a604e09b6ff57fc1876b133baf0aa3d2599e968d5746e2d055f7",
+                "output_chars": 2399
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 8,
+                "generation": 2,
+                "reserved_tokens": 27806,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 8,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 7229,
+                  "prompt_tokens": 6339,
+                  "completion_tokens": 890
+                },
+                "elapsed_ms": 3724,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 8,
+                "tool": "write_file",
+                "generation": 2,
+                "arguments_hash": "b295402ed269ed569fef084028f97fe8628bdc95b7a0d3cdd25fa6cad7c54e75"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 8,
+                "tool": "write_file",
+                "generation": 2,
+                "output_hash": "b7babc00a568a055f4dd2ccf12699a7cc14a2c9f2f93aecc754b2c3aa24fd94d",
+                "output_chars": 50
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 9,
+                "generation": 2,
+                "reserved_tokens": 25991,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 9,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 5939,
+                  "prompt_tokens": 5890,
+                  "completion_tokens": 49
+                },
+                "elapsed_ms": 991,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 9,
+                "tool": "terminal",
+                "generation": 2,
+                "arguments_hash": "05c2bc4b9a706159bbb134d1a582cca288e486c08a519acb6f597870ea0c0941"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 9,
+                "tool": "terminal",
+                "generation": 2,
+                "output_hash": "bc5e4c18a1a20ae908bf2765dad7e94b2903b03b4d826d4ab1715707b1f72a69",
+                "output_chars": 662
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 10,
+                "generation": 2,
+                "reserved_tokens": 27044,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 10,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 6239,
+                  "prompt_tokens": 6126,
+                  "completion_tokens": 113
+                },
+                "elapsed_ms": 1224,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 10,
+                "tool": "read_file",
+                "generation": 2,
+                "arguments_hash": "19b4e2f4c9a2ed43afc86e1b6ec5ab348ad83d1407b08122436a948943be83b2"
+              }
+            },
+            {
+              "type": "agent.tool_returned",
+              "payload": {
+                "ok": true,
+                "call": 10,
+                "tool": "read_file",
+                "generation": 2,
+                "output_hash": "c7d0cba4f5573c53268f691defa91fadcab60c2e036ebad76785ec4c1608f449",
+                "output_chars": 1828
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 11,
+                "generation": 2,
+                "reserved_tokens": 24932,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 11,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 5851,
+                  "prompt_tokens": 5475,
+                  "completion_tokens": 376
+                },
+                "elapsed_ms": 2748,
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 11,
+                "tool": "finish",
+                "generation": 2,
+                "arguments_hash": "d1d093b687e741f6779d3844da672f8dfb7b1268479324439acac546f795585c"
+              }
+            },
+            {
+              "type": "agent.implementation_submitted",
+              "payload": {
+                "revision": 1,
+                "snapshot_hash": "7271b17fd7c8a31f2a82e21b46b279003541e841fbb4b0590ed9289a1669fac5"
+              }
+            },
+            {
+              "type": "execution.claimed",
+              "payload": {
+                "generation": 3
+              }
+            },
+            {
+              "type": "verification.completed",
+              "payload": {
+                "outcome": "PASSED",
+                "sequence": 1,
+                "suite_hash": "62694a6e215f0631741f1bb6b5c3e8bad493a1615f97fcbe3b96296be0c31ee9",
+                "snapshot_hash": "7271b17fd7c8a31f2a82e21b46b279003541e841fbb4b0590ed9289a1669fac5",
+                "repair_scheduled": false
+              }
+            }
+          ],
+          "snapshot_hash": "7271b17fd7c8a31f2a82e21b46b279003541e841fbb4b0590ed9289a1669fac5",
+          "verifications": [
+            {
+              "sequence": 1,
+              "generation": 3,
+              "checks": [
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "201 with integer id and unchanged text",
+                  "held_out": false,
+                  "acceptance_id": "A1",
+                  "requirement_ids": [
+                    "R1"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Empty and over-limit text return 422",
+                  "held_out": false,
+                  "acceptance_id": "A2",
+                  "requirement_ids": [
+                    "R1"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Missing resource returns 404",
+                  "held_out": false,
+                  "acceptance_id": "A4",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Read returns created note",
+                  "held_out": false,
+                  "acceptance_id": "A3",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "201 with integer id and unchanged text",
+                  "held_out": true,
+                  "acceptance_id": "A1",
+                  "requirement_ids": [
+                    "R1"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Empty and over-limit text return 422",
+                  "held_out": true,
+                  "acceptance_id": "A2",
+                  "requirement_ids": [
+                    "R1"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Missing resource returns 404",
+                  "held_out": true,
+                  "acceptance_id": "A4",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Read returns created note",
+                  "held_out": true,
+                  "acceptance_id": "A3",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "201 with integer id and unchanged text",
+                  "held_out": true,
+                  "acceptance_id": "A1",
+                  "requirement_ids": [
+                    "R1"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Empty and over-limit text return 422",
+                  "held_out": true,
+                  "acceptance_id": "A2",
+                  "requirement_ids": [
+                    "R1"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Missing resource returns 404",
+                  "held_out": true,
+                  "acceptance_id": "A4",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Read returns created note",
+                  "held_out": true,
+                  "acceptance_id": "A3",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Previously created resource survives process restart",
+                  "held_out": false,
+                  "acceptance_id": "A3",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Previously created resource survives process restart",
+                  "held_out": true,
+                  "acceptance_id": "A3",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                },
+                {
+                  "actual": "matched",
+                  "passed": true,
+                  "expected": "Previously created resource survives process restart",
+                  "held_out": true,
+                  "acceptance_id": "A3",
+                  "requirement_ids": [
+                    "R2"
+                  ]
+                }
+              ],
+              "outcome": "PASSED",
+              "feedback": [],
+              "image_id": "sha256:4258424cb9f118daaa16964e0d5bf0bf6c1ef7bfad32c744983b87840242b16d",
+              "spec_hash": "522d740b81f061c3dca74d0a6e6bfdf4821d2ac75200bc42e0627e7969a5dfda",
+              "suite_hash": "62694a6e215f0631741f1bb6b5c3e8bad493a1615f97fcbe3b96296be0c31ee9",
+              "snapshot_hash": "7271b17fd7c8a31f2a82e21b46b279003541e841fbb4b0590ed9289a1669fac5",
+              "suite_version": "python-api-http-v1",
+              "repair_scheduled": false
+            }
+          ]
+        },
+        {
+          "run_id": "d56d8cca-c48d-47e0-9e03-41a9bbe52e88",
+          "status": "FAILED",
+          "accepted": false,
+          "elapsed_seconds": 15.63885710015893,
+          "budget": {
+            "calls": 2,
+            "reserved_tokens": 22660,
+            "reserved_seconds": 300,
+            "max_calls": 32,
+            "max_tokens": 240000,
+            "max_seconds": 1800
+          },
+          "events": [
+            {
+              "type": "run.created",
+              "payload": {
+                "status": "QUEUED"
+              }
+            },
+            {
+              "type": "execution.claimed",
+              "payload": {
+                "generation": 1
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 1,
+                "generation": 1,
+                "reserved_tokens": 9391,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_returned",
+              "payload": {
+                "call": 1,
+                "cost": null,
+                "model": "deepseek-flash",
+                "usage": {
+                  "total_tokens": 2144,
+                  "prompt_tokens": 1613,
+                  "completion_tokens": 531
+                },
+                "elapsed_ms": 2900,
+                "generation": 1
+              }
+            },
+            {
+              "type": "agent.tool_requested",
+              "payload": {
+                "call": 1,
+                "tool": "propose_plan",
+                "generation": 1,
+                "arguments_hash": "3249c1d76663936ffe72b84a3fd7c120fd9209ef8ee50a822de5d629347df8c0"
+              }
+            },
+            {
+              "type": "agent.plan_proposed",
+              "payload": {
+                "reason": "Initial implementation plan",
+                "revision": 1,
+                "plan_hash": "a6c286c476c547ede2cf0ad75b1b6b084eaaa2e020db751c3fb4a817d25867af"
+              }
+            },
+            {
+              "type": "agent.approval_decided",
+              "payload": {
+                "owner": "bench-6d5715b473834c9f82805e2f90324193",
+                "decision": "APPROVED",
+                "revision": 1
+              }
+            },
+            {
+              "type": "execution.claimed",
+              "payload": {
+                "generation": 2
+              }
+            },
+            {
+              "type": "agent.call_reserved",
+              "payload": {
+                "call": 2,
+                "generation": 2,
+                "reserved_tokens": 13269,
+                "reserved_seconds": 150
+              }
+            },
+            {
+              "type": "agent.model_failed",
+              "payload": {
+                "call": 2,
+                "reason": "Only one tool call per turn is allowed",
+                "generation": 2
+              }
+            },
+            {
+              "type": "execution.failed",
+              "payload": {
+                "reason": "ModelError",
+                "generation": 2
+              }
+            }
+          ],
+          "snapshot_hash": null,
+          "verifications": []
+        }
+      ]
+    }
+  ]
+}

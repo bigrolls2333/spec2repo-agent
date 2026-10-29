@@ -1,0 +1,7 @@
+{
+  "snapshot_hash": "05761f114cfad38779b410b376c848561c4ac9fb3707713ae8e5c2908d8739ab",
+  "image_id": "sha256:4258424cb9f118daaa16964e0d5bf0bf6c1ef7bfad32c744983b87840242b16d",
+  "exit_code": 0,
+  "output": "......                                                                   [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/starlette/testclient.py:37\n  /usr/local/lib/python3.12/site-packages/starlette/testclient.py:37: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.\n    _PortalFactoryType = typing.Callable[[], typing.ContextManager[anyio.abc.BlockingPortal]]\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n6 passed, 1 warning in 0.44s\n",
+  "scope": "Generated developer tests in a new restored workspace; not independent acceptance"
+}

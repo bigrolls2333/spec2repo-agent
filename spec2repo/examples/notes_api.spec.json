@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "id": "notes-api",
+  "version": 1,
+  "profile": "python_api",
+  "title": "Small persistent notes API",
+  "requirements": [
+    {"id": "R1", "description": "Create notes with a nonempty text of at most 200 characters. Store in SQLite and assign an integer id."},
+    {"id": "R2", "description": "Read a note by id. Return 404 for a missing id. Notes persist across application restarts."}
+  ],
+  "acceptance_criteria": [
+    {"id": "A1", "requirement_ids": ["R1"], "given": "A valid text", "when": "POST /notes with JSON {text: string}", "then": "Return 201 with id and text."},
+    {"id": "A2", "requirement_ids": ["R1"], "given": "An empty or over-200-character text", "when": "POST /notes", "then": "Return 422 and do not create a note."},
+    {"id": "A3", "requirement_ids": ["R2"], "given": "An existing note id", "when": "GET /notes/{id}", "then": "Return 200 with id and text, including after app restart."},
+    {"id": "A4", "requirement_ids": ["R2"], "given": "An unknown id", "when": "GET /notes/{id}", "then": "Return 404."}
+  ],
+  "operations": [
+    {"id": "create-note", "method": "POST", "path": "/notes", "requirement_ids": ["R1"], "description": "Create a note", "response_statuses": [201, 422]},
+    {"id": "read-note", "method": "GET", "path": "/notes/{id}", "requirement_ids": ["R2"], "description": "Read a note", "response_statuses": [200, 404, 422]}
+  ],
+  "constraints": [
+    "Use FastAPI, Pydantic and standard-library sqlite3.",
+    "Expose app:app and start with uvicorn app:app.",
+    "Use NOTES_DB environment variable for SQLite path, default notes.db.",
+    "Include pytest developer tests with temporary SQLite files and a README.",
+    "No authentication, external network or third-party package installation."
+  ],
+  "open_questions": []
+}

@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "id": "task-api",
+  "version": 2,
+  "profile": "python_api",
+  "title": "任务管理 API",
+  "requirements": [
+    {
+      "id": "REQ-CREATE",
+      "description": "POST /tasks 接收 title，去除两端空白后长度为 1～120。创建成功返回 201 与 id、title、status；id 为服务生成的非空字符串，初始 status 为 todo。非法 title 返回 422。"
+    },
+    {
+      "id": "REQ-READ",
+      "description": "GET /tasks/{task_id} 返回 200 与任务 id、title、status；不存在的任务返回 404。"
+    },
+    {
+      "id": "REQ-LIST",
+      "description": "GET /tasks 使用 offset（默认 0，最小 0）与 limit（默认 20，范围 1～100）分页，按创建顺序返回 {items: [...], total: 整数}。非法分页参数返回 422。"
+    },
+    {
+      "id": "REQ-STATUS",
+      "description": "PATCH /tasks/{task_id} 接收 status，只允许 todo → doing → done 或保持原状态；跳过或逆向转换返回 409，非法枚举返回 422，不存在返回 404。成功返回 200 与更新后的任务。"
+    },
+    {
+      "id": "REQ-PERSIST",
+      "description": "任务持久化到 SQLite；应用重启后，在同一数据库文件中仍可查询之前创建的任务。"
+    }
+  ],
+  "operations": [
+    {
+      "id": "OP-CREATE",
+      "method": "POST",
+      "path": "/tasks",
+      "requirement_ids": [
+        "REQ-CREATE",
+        "REQ-PERSIST"
+      ],
+      "description": "创建任务",
+      "response_statuses": [
+        201,
+        422
+      ]
+    },
+    {
+      "id": "OP-READ",
+      "method": "GET",
+      "path": "/tasks/{task_id}",
+      "requirement_ids": [
+        "REQ-READ",
+        "REQ-PERSIST"
+      ],
+      "description": "查询单个任务",
+      "response_statuses": [
+        200,
+        404
+      ]
+    },
+    {
+      "id": "OP-LIST",
+      "method": "GET",
+      "path": "/tasks",
+      "requirement_ids": [
+        "REQ-LIST"
+      ],
+      "description": "分页查询",
+      "response_statuses": [
+        200,
+        422
+      ]
+    },
+    {
+      "id": "OP-STATUS",
+      "method": "PATCH",
+      "path": "/tasks/{task_id}",
+      "requirement_ids": [
+        "REQ-STATUS"
+      ],
+      "description": "更新任务状态",
+      "response_statuses": [
+        200,
+        404,
+        409,
+        422
+      ]
+    }
+  ],
+  "acceptance_criteria": [
+    {
+      "id": "AC-CREATE",
+      "requirement_ids": [
+        "REQ-CREATE"
+      ],
+      "given": "空数据库",
+      "when": "创建 title 为 '  Write tests  ' 的任务",
+      "then": "返回 201，title 为 'Write tests'，status 为 todo，id 为非空字符串"
+    },
+    {
+      "id": "AC-INVALID-TITLE",
+      "requirement_ids": [
+        "REQ-CREATE"
+      ],
+      "given": "可用服务",
+      "when": "分别提交空白 title、超过 120 字符的 title、缺失 title",
+      "then": "均返回 422 且不创建任务"
+    },
+    {
+      "id": "AC-READ",
+      "requirement_ids": [
+        "REQ-READ"
+      ],
+      "given": "存在一个已创建的任务",
+      "when": "按返回的 id 查询，并查询一个不存在的 id",
+      "then": "分别返回相同任务的 200 响应和 404 响应"
+    },
+    {
+      "id": "AC-LIST",
+      "requirement_ids": [
+        "REQ-LIST"
+      ],
+      "given": "按顺序创建三个任务",
+      "when": "查询 offset=1、limit=1",
+      "then": "items 仅包含第二个任务，total 为 3"
+    },
+    {
+      "id": "AC-INVALID-PAGE",
+      "requirement_ids": [
+        "REQ-LIST"
+      ],
+      "given": "可用服务",
+      "when": "分别查询 offset=-1、limit=0、limit=101",
+      "then": "均返回 422"
+    },
+    {
+      "id": "AC-TRANSITIONS",
+      "requirement_ids": [
+        "REQ-STATUS"
+      ],
+      "given": "一个 todo 任务",
+      "when": "先请求直接变为 done，再依次变为 doing、done、done，最后请求变回 todo",
+      "then": "响应依次为 409、200、200、200、409，最终状态仍为 done"
+    },
+    {
+      "id": "AC-INVALID-STATUS",
+      "requirement_ids": [
+        "REQ-STATUS"
+      ],
+      "given": "一个已有任务",
+      "when": "提交未知状态或为不存在的任务提交合法状态",
+      "then": "分别返回 422 与 404"
+    },
+    {
+      "id": "AC-PERSIST",
+      "requirement_ids": [
+        "REQ-PERSIST"
+      ],
+      "given": "已创建任务并保存返回的 id",
+      "when": "重启应用并继续使用同一 SQLite 文件",
+      "then": "查询原 id 返回相同任务"
+    }
+  ],
+  "constraints": [
+    "使用 Python、FastAPI、Pydantic 与 SQLite。工作区最初为空，目录与内部实现由 agent 决定。",
+    "提供启动说明与开发测试；监听端口从 PORT 环境变量读取，数据库文件路径从 DATABASE_PATH 读取。",
+    "任务 id 在同一数据库中唯一。创建顺序必须稳定，不依赖 id 的字典序。",
+    "首版不实现业务用户登录。平台身份隔离由 Spec2Repo 后端另行负责。",
+    "应用入口固定为 app:app，可用 uvicorn app:app 启动；验收器通过 HTTP 检查业务行为。"
+  ],
+  "open_questions": []
+}

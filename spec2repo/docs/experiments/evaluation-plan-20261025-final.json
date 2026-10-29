@@ -1,0 +1,94 @@
+{
+  "plan": {
+    "version": "spec2repo-eval-v1",
+    "code_hash": "d9322a5d4f2ade4916422de0ef9caab24c3eb51d5c5710b5fb8e1fd374a4deed",
+    "trials": [
+      {
+        "case": "notes",
+        "spec_sha256": "ec077422a2a059b4066969676ebb3af1adfd347d9abe1b90b0f6a1fdb5da9f2f",
+        "repeat": 1,
+        "profile": "baseline"
+      },
+      {
+        "case": "notes",
+        "spec_sha256": "ec077422a2a059b4066969676ebb3af1adfd347d9abe1b90b0f6a1fdb5da9f2f",
+        "repeat": 1,
+        "profile": "memory"
+      },
+      {
+        "case": "notes",
+        "spec_sha256": "ec077422a2a059b4066969676ebb3af1adfd347d9abe1b90b0f6a1fdb5da9f2f",
+        "repeat": 1,
+        "profile": "guarded"
+      },
+      {
+        "case": "task",
+        "spec_sha256": "f4d36de41b73b7c8d2b3998442f3869117703ffac9bb6a012272125866a99f38",
+        "repeat": 1,
+        "profile": "memory"
+      },
+      {
+        "case": "task",
+        "spec_sha256": "f4d36de41b73b7c8d2b3998442f3869117703ffac9bb6a012272125866a99f38",
+        "repeat": 1,
+        "profile": "guarded"
+      },
+      {
+        "case": "task",
+        "spec_sha256": "f4d36de41b73b7c8d2b3998442f3869117703ffac9bb6a012272125866a99f38",
+        "repeat": 1,
+        "profile": "baseline"
+      },
+      {
+        "case": "notes",
+        "spec_sha256": "ec077422a2a059b4066969676ebb3af1adfd347d9abe1b90b0f6a1fdb5da9f2f",
+        "repeat": 2,
+        "profile": "memory"
+      },
+      {
+        "case": "notes",
+        "spec_sha256": "ec077422a2a059b4066969676ebb3af1adfd347d9abe1b90b0f6a1fdb5da9f2f",
+        "repeat": 2,
+        "profile": "guarded"
+      },
+      {
+        "case": "notes",
+        "spec_sha256": "ec077422a2a059b4066969676ebb3af1adfd347d9abe1b90b0f6a1fdb5da9f2f",
+        "repeat": 2,
+        "profile": "baseline"
+      },
+      {
+        "case": "task",
+        "spec_sha256": "f4d36de41b73b7c8d2b3998442f3869117703ffac9bb6a012272125866a99f38",
+        "repeat": 2,
+        "profile": "guarded"
+      },
+      {
+        "case": "task",
+        "spec_sha256": "f4d36de41b73b7c8d2b3998442f3869117703ffac9bb6a012272125866a99f38",
+        "repeat": 2,
+        "profile": "baseline"
+      },
+      {
+        "case": "task",
+        "spec_sha256": "f4d36de41b73b7c8d2b3998442f3869117703ffac9bb6a012272125866a99f38",
+        "repeat": 2,
+        "profile": "memory"
+      }
+    ],
+    "concurrency": 1,
+    "repeats": 2,
+    "budget_per_task": {
+      "calls": 32,
+      "reserved_tokens": 240000,
+      "reserved_seconds": 1800
+    },
+    "max_output_tokens": 4096,
+    "limitations": [
+      "Two public fixed cases; not a held-out generalization benchmark",
+      "Finite repeated trials, not sustained throughput"
+    ]
+  },
+  "executed": false,
+  "results": []
+}

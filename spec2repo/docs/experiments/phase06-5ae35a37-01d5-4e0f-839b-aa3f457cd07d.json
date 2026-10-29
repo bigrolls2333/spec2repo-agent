@@ -1,0 +1,190 @@
+{
+  "run_id": "5ae35a37-01d5-4e0f-839b-aa3f457cd07d",
+  "source_run_id": "a08e3859-362b-445d-9270-36b76fe0e545",
+  "source_report": "phase05-a08e3859-362b-445d-9270-36b76fe0e545.json",
+  "model": "deepseek-flash",
+  "new_model_calls": 0,
+  "source_budget": {
+    "calls": 10,
+    "reserved_tokens": 204838,
+    "reserved_seconds": 1500,
+    "max_calls": 32,
+    "max_tokens": 240000,
+    "max_seconds": 1800
+  },
+  "status": "SUCCEEDED",
+  "elapsed_seconds": 5.14,
+  "verifications": [
+    {
+      "sequence": 1,
+      "generation": 3,
+      "checks": [
+        {
+          "actual": "matched",
+          "passed": true,
+          "expected": "201 with integer id and unchanged text",
+          "held_out": false,
+          "acceptance_id": "A1",
+          "requirement_ids": [
+            "R1"
+          ]
+        },
+        {
+          "actual": "matched",
+          "passed": true,
+          "expected": "Empty and over-limit text return 422",
+          "held_out": false,
+          "acceptance_id": "A2",
+          "requirement_ids": [
+            "R1"
+          ]
+        },
+        {
+          "actual": "matched",
+          "passed": true,
+          "expected": "Missing resource returns 404",
+          "held_out": false,
+          "acceptance_id": "A4",
+          "requirement_ids": [
+            "R2"
+          ]
+        },
+        {
+          "actual": "matched",
+          "passed": true,
+          "expected": "Read returns created note",
+          "held_out": false,
+          "acceptance_id": "A3",
+          "requirement_ids": [
+            "R2"
+          ]
+        },
+        {
+          "actual": "matched",
+          "passed": true,
+          "expected": "201 with integer id and unchanged text",
+          "held_out": true,
+          "acceptance_id": "A1",
+          "requirement_ids": [
+            "R1"
+          ]
+        },
+        {
+          "actual": "matched",
+          "passed": true,
+          "expected": "Empty and over-limit text return 422",
+          "held_out": true,
+          "acceptance_id": "A2",
+          "requirement_ids": [
+            "R1"
+          ]
+        },
+        {
+          "actual": "matched",
+          "passed": true,
+          "expected": "Missing resource returns 404",
+          "held_out": true,
+          "acceptance_id": "A4",
+          "requirement_ids": [
+            "R2"
+          ]
+        },
+        {
+          "actual": "matched",
+          "passed": true,
+          "expected": "Read returns created note",
+          "held_out": true,
+          "acceptance_id": "A3",
+          "requirement_ids": [
+            "R2"
+          ]
+        },
+        {
+          "actual": "matched",
+          "passed": true,
+          "expected": "201 with integer id and unchanged text",
+          "held_out": true,
+          "acceptance_id": "A1",
+          "requirement_ids": [
+            "R1"
+          ]
+        },
+        {
+          "actual": "matched",
+          "passed": true,
+          "expected": "Empty and over-limit text return 422",
+          "held_out": true,
+          "acceptance_id": "A2",
+          "requirement_ids": [
+            "R1"
+          ]
+        },
+        {
+          "actual": "matched",
+          "passed": true,
+          "expected": "Missing resource returns 404",
+          "held_out": true,
+          "acceptance_id": "A4",
+          "requirement_ids": [
+            "R2"
+          ]
+        },
+        {
+          "actual": "matched",
+          "passed": true,
+          "expected": "Read returns created note",
+          "held_out": true,
+          "acceptance_id": "A3",
+          "requirement_ids": [
+            "R2"
+          ]
+        },
+        {
+          "actual": "matched",
+          "passed": true,
+          "expected": "Previously created resource survives process restart",
+          "held_out": false,
+          "acceptance_id": "A3",
+          "requirement_ids": [
+            "R2"
+          ]
+        },
+        {
+          "actual": "matched",
+          "passed": true,
+          "expected": "Previously created resource survives process restart",
+          "held_out": true,
+          "acceptance_id": "A3",
+          "requirement_ids": [
+            "R2"
+          ]
+        },
+        {
+          "actual": "matched",
+          "passed": true,
+          "expected": "Previously created resource survives process restart",
+          "held_out": true,
+          "acceptance_id": "A3",
+          "requirement_ids": [
+            "R2"
+          ]
+        }
+      ],
+      "outcome": "PASSED",
+      "feedback": [],
+      "image_id": "sha256:4258424cb9f118daaa16964e0d5bf0bf6c1ef7bfad32c744983b87840242b16d",
+      "spec_hash": "522d740b81f061c3dca74d0a6e6bfdf4821d2ac75200bc42e0627e7969a5dfda",
+      "suite_hash": "3d443c33cfa5e9b257f58c80ed57e46bf840c7b695a8021bcc7a4ff870948437",
+      "snapshot_hash": "05761f114cfad38779b410b376c848561c4ac9fb3707713ae8e5c2908d8739ab",
+      "suite_version": "python-api-http-v1",
+      "repair_scheduled": false
+    }
+  ],
+  "artifact": {
+    "snapshot_hash": "05761f114cfad38779b410b376c848561c4ac9fb3707713ae8e5c2908d8739ab",
+    "spec_hash": "522d740b81f061c3dca74d0a6e6bfdf4821d2ac75200bc42e0627e7969a5dfda",
+    "suite_hash": "3d443c33cfa5e9b257f58c80ed57e46bf840c7b695a8021bcc7a4ff870948437",
+    "verification_sequence": 1
+  },
+  "note": "Independent acceptance of one historical real-model artifact; not a new sample."
+}

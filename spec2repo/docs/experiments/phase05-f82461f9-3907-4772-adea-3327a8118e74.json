@@ -1,0 +1,48 @@
+{
+  "model": "deepseek-v4-pro",
+  "run_id": "f82461f9-3907-4772-adea-3327a8118e74",
+  "status": "FAILED",
+  "elapsed_seconds": 1.34,
+  "budget": {
+    "calls": 1,
+    "reserved_tokens": 8990,
+    "reserved_seconds": 150,
+    "max_calls": 32,
+    "max_tokens": 240000,
+    "max_seconds": 1800
+  },
+  "snapshot_hash": null,
+  "image_id": "sha256:4258424cb9f118daaa16964e0d5bf0bf6c1ef7bfad32c744983b87840242b16d",
+  "cost": null,
+  "note": "Real model/tool execution; developer tests are not independent acceptance.",
+  "events": [
+    {
+      "type": "run.created",
+      "payload": {
+        "status": "QUEUED"
+      }
+    },
+    {
+      "type": "execution.claimed",
+      "payload": {
+        "generation": 1
+      }
+    },
+    {
+      "type": "agent.call_reserved",
+      "payload": {
+        "call": 1,
+        "generation": 1,
+        "reserved_tokens": 8990,
+        "reserved_seconds": 150
+      }
+    },
+    {
+      "type": "execution.failed",
+      "payload": {
+        "reason": "ModelError",
+        "generation": 1
+      }
+    }
+  ]
+}

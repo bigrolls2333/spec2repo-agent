@@ -1,0 +1,30 @@
+name: spec2repo-integration
+services:
+  redis-test:
+    image: redis:7.4-alpine
+    ports:
+      - "127.0.0.1:16380:6379"
+    command: ["redis-server", "--appendonly", "yes", "--appendfsync", "everysec"]
+    tmpfs:
+      - /data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 2s
+      timeout: 2s
+      retries: 20
+  mysql-test:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: spec2repo_test
+      MYSQL_USER: spec2repo_test
+      MYSQL_PASSWORD: ${MYSQL_TEST_PASSWORD:?Set MYSQL_TEST_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_TEST_ROOT_PASSWORD:?Set MYSQL_TEST_ROOT_PASSWORD}
+    ports:
+      - "127.0.0.1:13307:3306"
+    tmpfs:
+      - /var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "MYSQL_PWD=$$MYSQL_PASSWORD mysql -h 127.0.0.1 -u spec2repo_test -D spec2repo_test -e 'SELECT 1' >/dev/null 2>&1"]
+      interval: 3s
+      timeout: 3s
+      retries: 40
